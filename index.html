@@ -1,2 +1,19 @@
-<h1>this is the 102 South Lincoln Anime Blog</h1>
-<body> coming soon! </body>
+---
+layout: default
+title: Home
+---
+
+<h1>Welcome to our Anime Review Hub!</h1>
+<p>Check out our latest takes below:</p>
+
+<ul class="post-list">
+  {% for post in site.posts %}
+    <li>
+      <span class="post-date">{{ post.date | date: "%b %d, %Y" }}</span>
+      <h3>
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      </h3>
+      <p>Reviewed by: **{{ post.author }}** | <span class="score-badge">Score: {{ post.score }}/10</span></p>
+    </li>
+  {% endfor %}
+</ul>
